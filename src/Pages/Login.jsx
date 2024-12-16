@@ -26,75 +26,83 @@ export const Login = ({ setJwtDataLocal }) => {
   };
 
   return (
-    <section
-      className="h-screen w-full bg-cover bg-center"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
-      }}
-    >
-      <div className="w-1/2 h-screen bg-[#ECECEC] rounded-r-3xl flex flex-col justify-center items-center">
-        <div className="flex flex-col w-3/6 justify-center items-center h-2/6">
-          <form
-            className="w-full h-full flex flex-col justify-between"
-            onSubmit={handleSubmit}
-          >
-            <h1 className="font-montserrat text-6xl font-medium">ACCEDER</h1>
-            <div className="w-full relative">
+    <section className="h-screen w-full flex flex-col lg:flex-row items-center justify-center bg-black">
+      {/* Imagen */}
+      <div className="w-full h-1/2 lg:w-1/2 lg:h-screen relative">
+        <img
+          className="w-full h-full object-cover"
+          src={backgroundImage}
+          alt="Fondo"
+        />
+        <div
+          className="absolute top-0 left-0 w-full h-full"
+          style={{
+            background:
+              "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
+          }}
+        ></div>
+      </div>
+
+      {/* Formulario */}
+      <div className="w-full h-1/2 lg:w-1/2 lg:h-screen flex items-center justify-center bg-white">
+        <div className="rounded-2xl p-8 w-full max-w-md">
+          <h1 className="font-montserrat text-5xl text-center mb-3 sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-6xl">
+            ACCEDER
+          </h1>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            {/* Nombre de usuario */}
+            <div className="relative">
               <PersonIcon
-                className="text-[#181818] absolute left-1 transform -translate-y-1/2 top-1/2"
-                style={{ fontSize: 34 }}
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                style={{ fontSize: 28 }}
               />
               <input
                 type="email"
                 name="email"
                 id="email"
-                className="bg-transparent border-b-[1px] border-[#181818] w-full pl-10 focus:outline-none font-montserrat placeholder-[#181818] placeholder-opacity-50 text-lg"
+                className="w-full pl-12 pr-4 py-2 border-b-2 border-gray-400 focus:outline-none text-lg placeholder-gray-600"
                 placeholder="Nombre de usuario"
-                style={{
-                  lineHeight: "38px",
-                }}
               />
             </div>
 
-            <div className="w-full">
-              <div className="w-full relative">
-                <PasswordIcon
-                  className="text-[#181818] absolute left-1 transform -translate-y-1/2 top-1/2"
-                  style={{ fontSize: 32 }}
-                />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="bg-transparent border-b-[1px] border-[#181818] w-full pl-10 focus:outline-none font-montserrat placeholder-[#181818] placeholder-opacity-50 text-lg"
-                  placeholder="Contraseña"
-                  style={{
-                    lineHeight: "38px",
-                  }}
-                />
-              </div>
-              {/* Administrador */}
-              <div className="flex items-center mt-2">
-                <input
-                  id="remember"
-                  aria-describedby="remember"
-                  type="checkbox"
-                  className="w-4 h-4 border-[#181818]"
-                />
-                <label
-                  htmlFor="remember"
-                  className="text-[#181818] text-lg pl-2 font-montserrat"
-                >
-                  Administrador
-                </label>
-              </div>
-              <button
-                type="submit"
-                className="w-full p-3 text-white text-2xl font-montserrat bg-[#363636] rounded-xl mt-4"
-              >
-                CONTINUAR
-              </button>
+            {/* Contraseña */}
+            <div className="relative">
+              <PasswordIcon
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                style={{ fontSize: 28 }}
+              />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="w-full pl-12 pr-4 py-2 border-b-2 border-gray-400 focus:outline-none text-lg placeholder-gray-600"
+                placeholder="Contraseña"
+              />
             </div>
+
+            {/* Checkbox Administrador */}
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="remember"
+                className="w-4 h-4 border-gray-400"
+              />
+              <label
+                htmlFor="remember"
+                className="ml-2 text-gray-600 text-lg font-montserrat"
+              >
+                Administrador
+              </label>
+            </div>
+
+            {/* Botón de enviar */}
+            <button
+              type="submit"
+              className="w-full bg-[#363636] text-white rounded-xl py-3 text-xl font-semibold mt-2"
+            >
+              CONTINUAR
+            </button>
           </form>
         </div>
       </div>

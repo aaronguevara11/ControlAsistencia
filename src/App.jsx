@@ -10,7 +10,7 @@ import {
 import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/700.css";
 import Sidebar from "./Components/SideBar";
-import { Home } from "./Pages/Home/Home"; // Importación corregida
+import { Home } from "./Pages/Home/Home";
 
 const ProtectedRoute = ({ children, jwtDataLocal }) => {
   const location = useLocation();
@@ -27,19 +27,20 @@ function App() {
     localStorage.getItem("jwtdata")
   );
 
-  // Actualizar localStorage cuando cambie jwtDataLocal
   useEffect(() => {
     localStorage.setItem("jwtdata", jwtDataLocal);
   }, [jwtDataLocal]);
 
-  // Componente de Layout con Sidebar
   const Layout = ({ children }) => {
     return (
-      <div className="flex h-screen">
-        <div className="w-2/12 md:w-1/6">
+      <div className="relative flex h-screen">
+        {/* Sidebar siempre visible en móviles */}
+        <div className=" top-0 left-0 h-full w-auto md:w-auto z-40">
           <Sidebar />
         </div>
-        <main className="w-10/12">{children}</main>
+
+        {/* Contenido principal */}
+        <main className="flex-1 p-4 md:w-auto z-0">{children}</main>
       </div>
     );
   };
