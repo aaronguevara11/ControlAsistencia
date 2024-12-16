@@ -17,12 +17,12 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`top-0 left-0 h-full bg-gray-800 text-white shadow-lg transform transition-transform duration-300 z-40 ${
+      className={`top-0 left-0 h-full bg-[#793333] text-white shadow-lg transform transition-transform duration-300 z-40 ${
         isOpen ? "translate-x-0" : "-translate-x-64"
       } md:translate-x-0`}
     >
-      <div className="p-4 border-b border-gray-700">
-        <h1 className="text-2xl font-semibold uppercase">
+      <div className="p-4 border-b border-[#632828]">
+        <h1 className="text-3xl font-semibold uppercase">
           Control de Asistencias
         </h1>
       </div>
@@ -34,7 +34,7 @@ const Sidebar = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   `flex items-center space-x-4 px-4 py-3 rounded-lg transition-all ${
-                    isActive ? "bg-gray-700" : "hover:bg-gray-700"
+                    isActive ? "bg-[#632828]" : "hover:bg-[#632828]"
                   }`
                 }
               >
