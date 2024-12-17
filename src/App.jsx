@@ -35,12 +35,12 @@ function App() {
     return (
       <div className="relative flex h-screen">
         {/* Sidebar siempre visible en móviles */}
-        <div className=" top-0 left-0 h-full w-auto md:w-auto z-40">
+        <div className="top-0 left-0 h-full w-auto ">
           <Sidebar />
         </div>
 
         {/* Contenido principal */}
-        <main className="flex-1 p-4 md:w-auto z-0">{children}</main>
+        <main className="h-full flex-1 w-auto z-0">{children}</main>
       </div>
     );
   };

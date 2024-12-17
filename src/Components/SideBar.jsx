@@ -20,7 +20,7 @@ export default function Sidebar({ children }) {
   }, []);
 
   return (
-    <aside className="h-screen">
+    <aside className="h-full">
       <nav className="h-full flex flex-col bg-[#793333] text-white border-r shadow-sm">
         <div className="p-4 flex justify-between items-center">
           <button
